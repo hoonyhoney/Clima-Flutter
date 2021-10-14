@@ -1,4 +1,6 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:clima/services/weather.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
 
@@ -55,7 +57,7 @@ class _LocationScreenState extends State<LocationScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/location_background.jpg'),
+            image: AssetImage('images/cloud.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.white.withOpacity(0.8), BlendMode.dstATop),
@@ -105,6 +107,25 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(left: 15.0),
                 child: Row(
+                    children: <Widget>[
+                      TypewriterAnimatedTextKit(
+                        speed: const Duration(milliseconds: 200),
+                        text: ['오늘의 날씨'],
+                        textStyle: TextStyle(
+                          fontSize: 70.0, color: Colors.white,
+                          fontWeight: FontWeight.bold,
+
+                        ),
+                      ),
+
+
+                    ],
+
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 15.0),
+                child: Row(
                   children: <Widget>[
                     Text(
                       '$temperature°',
@@ -120,7 +141,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  '$message in $cityName',
+                  ' $cityName',
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
